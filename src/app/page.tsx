@@ -52,22 +52,22 @@ export default function HomePage() {
               >
                 How It Works
               </a>
-              <a
-                href="#philosophy"
+              <Link
+                href="/pricing"
                 className="text-sm text-slate-400 hover:text-slate-100"
               >
                 Pricing
-              </a>
+              </Link>
             </nav>
             <div className="hidden md:flex items-center gap-3">
               <Link
-                href="/competitor"
+                href="/auth/login"
                 className="text-sm font-medium text-slate-300 hover:text-slate-100 px-4 py-2 rounded-lg border border-slate-700 hover:border-slate-600"
               >
                 Login
               </Link>
               <Link
-                href="/competitor"
+                href="/auth/login"
                 className="text-sm font-medium text-white bg-teal-600 hover:bg-teal-500 px-4 py-2 rounded-lg"
               >
                 Get Started
@@ -93,10 +93,10 @@ export default function HomePage() {
             <nav className="px-4 py-4 space-y-2">
               <a href="#features" className="block px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-slate-100 hover:bg-slate-800">Features</a>
               <a href="#how-it-works" className="block px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-slate-100 hover:bg-slate-800">How It Works</a>
-              <a href="#philosophy" className="block px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-slate-100 hover:bg-slate-800">Pricing</a>
+              <Link href="/pricing" className="block px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-slate-100 hover:bg-slate-800">Pricing</Link>
               <hr className="border-slate-700" />
-              <Link href="/competitor" className="block px-3 py-2 rounded-lg text-sm text-slate-300">Login</Link>
-              <Link href="/competitor" className="block px-3 py-2 rounded-lg text-sm font-medium text-white bg-teal-600">Get Started</Link>
+              <Link href="/auth/login" className="block px-3 py-2 rounded-lg text-sm text-slate-300">Login</Link>
+              <Link href="/auth/login" className="block px-3 py-2 rounded-lg text-sm font-medium text-white bg-teal-600">Get Started</Link>
             </nav>
           </div>
         )}
@@ -114,9 +114,9 @@ export default function HomePage() {
               AI-powered debate coaching &amp; judging tools
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight leading-tight">
-              The AI Coach That Makes You
+              Debate Coaching That
               <br />
-              <span className="text-gradient">Better, Not Dependent</span>
+              <span className="text-gradient">Actually Works</span>
             </h1>
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
               Expert debate coaching and judge assistance that strengthens
@@ -124,7 +124,7 @@ export default function HomePage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/competitor"
+                href="/auth/login"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl shadow-lg shadow-teal-600/20 w-full sm:w-auto justify-center"
               >
                 <BookOpen className="w-5 h-5" />
@@ -229,7 +229,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-slate-100 mb-4 tracking-tight">Ready to level up?</h2>
           <p className="text-slate-400 mb-8">Choose your portal and start improving today.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/competitor" className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl shadow-lg shadow-teal-600/20 w-full sm:w-auto justify-center">
+            <Link href="/auth/login" className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl shadow-lg shadow-teal-600/20 w-full sm:w-auto justify-center">
               <BookOpen className="w-5 h-5" />
               Start Training
             </Link>
