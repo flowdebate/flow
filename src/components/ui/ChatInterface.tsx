@@ -16,7 +16,7 @@ interface ChatInterfaceProps {
   isLoading?: boolean;
   placeholder?: string;
   systemContext?: string;
-  accentColor?: "blue" | "amber";
+  accentColor?: "blue" | "amber" | "teal" | "cyan";
   emptyStateTitle?: string;
   emptyStateDescription?: string;
   headerContent?: React.ReactNode;
@@ -27,7 +27,7 @@ export default function ChatInterface({
   onSendMessage,
   isLoading = false,
   placeholder = "Type your message...",
-  accentColor = "blue",
+  accentColor = "teal",
   emptyStateTitle = "Start a conversation",
   emptyStateDescription = "Type a message below to get started.",
   headerContent,
@@ -69,15 +69,27 @@ export default function ChatInterface({
   const accentClasses = {
     blue: {
       button: "bg-blue-600 hover:bg-blue-700",
-      botBg: "bg-blue-50",
-      botIcon: "text-blue-600",
+      botBg: "bg-blue-500/10",
+      botIcon: "text-blue-400",
       ring: "focus:ring-blue-500",
     },
     amber: {
       button: "bg-amber-600 hover:bg-amber-700",
-      botBg: "bg-amber-50",
-      botIcon: "text-amber-600",
+      botBg: "bg-amber-500/10",
+      botIcon: "text-amber-400",
       ring: "focus:ring-amber-500",
+    },
+    teal: {
+      button: "bg-teal-600 hover:bg-teal-500",
+      botBg: "bg-teal-500/10",
+      botIcon: "text-teal-400",
+      ring: "focus:ring-teal-500",
+    },
+    cyan: {
+      button: "bg-cyan-600 hover:bg-cyan-500",
+      botBg: "bg-cyan-500/10",
+      botIcon: "text-cyan-400",
+      ring: "focus:ring-cyan-500",
     },
   };
 
@@ -86,7 +98,7 @@ export default function ChatInterface({
   return (
     <div className="flex flex-col h-full">
       {headerContent && (
-        <div className="flex-shrink-0 border-b border-slate-200 px-4 py-3">
+        <div className="flex-shrink-0 border-b border-slate-700 px-4 py-3">
           {headerContent}
         </div>
       )}
@@ -100,10 +112,10 @@ export default function ChatInterface({
             >
               <Bot className={`w-6 h-6 ${accent.botIcon}`} />
             </div>
-            <h3 className="font-semibold text-slate-900 mb-1">
+            <h3 className="font-semibold text-slate-100 mb-1">
               {emptyStateTitle}
             </h3>
-            <p className="text-sm text-slate-500 max-w-sm">
+            <p className="text-sm text-slate-400 max-w-sm">
               {emptyStateDescription}
             </p>
           </div>
@@ -118,16 +130,16 @@ export default function ChatInterface({
               <div
                 className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${
                   message.role === "user"
-                    ? "bg-slate-900"
+                    ? "bg-teal-600"
                     : message.role === "system"
-                      ? "bg-amber-100"
+                      ? "bg-amber-500/10"
                       : accent.botBg
                 }`}
               >
                 {message.role === "user" ? (
                   <User className="w-4 h-4 text-white" />
                 ) : message.role === "system" ? (
-                  <AlertTriangle className="w-4 h-4 text-amber-600" />
+                  <AlertTriangle className="w-4 h-4 text-amber-400" />
                 ) : (
                   <Bot className={`w-4 h-4 ${accent.botIcon}`} />
                 )}
@@ -135,10 +147,10 @@ export default function ChatInterface({
               <div
                 className={`max-w-[80%] rounded-xl px-4 py-3 ${
                   message.role === "user"
-                    ? "bg-slate-900 text-white"
+                    ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
                     : message.role === "system"
-                      ? "bg-amber-50 text-amber-900 border border-amber-200"
-                      : "bg-slate-100 text-slate-900"
+                      ? "bg-amber-500/10 text-amber-200 border border-amber-500/20"
+                      : "bg-slate-800 text-slate-200 border border-slate-700/50"
                 }`}
               >
                 <div className="text-sm leading-relaxed whitespace-pre-wrap">
@@ -155,8 +167,8 @@ export default function ChatInterface({
             >
               <Bot className={`w-4 h-4 ${accent.botIcon}`} />
             </div>
-            <div className="bg-slate-100 rounded-xl px-4 py-3">
-              <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="bg-slate-800 border border-slate-700/50 rounded-xl px-4 py-3">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Thinking...
               </div>
@@ -167,7 +179,7 @@ export default function ChatInterface({
       </div>
 
       {/* Input area */}
-      <div className="flex-shrink-0 border-t border-slate-200 p-4 bg-white">
+      <div className="flex-shrink-0 border-t border-slate-700 p-4 bg-slate-800/50">
         <form onSubmit={handleSubmit} className="flex items-end gap-2">
           <div className="flex-1 relative">
             <textarea
@@ -177,7 +189,7 @@ export default function ChatInterface({
               onKeyDown={handleKeyDown}
               placeholder={placeholder}
               rows={1}
-              className={`w-full resize-none rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 ${accent.ring} focus:border-transparent placeholder:text-slate-400`}
+              className={`w-full resize-none rounded-xl border border-slate-700 bg-slate-800 text-slate-100 px-4 py-3 text-sm focus:outline-none focus:ring-2 ${accent.ring} focus:border-transparent placeholder:text-slate-500`}
             />
           </div>
           <button
@@ -192,7 +204,7 @@ export default function ChatInterface({
             )}
           </button>
         </form>
-        <p className="text-xs text-slate-400 mt-2 text-center">
+        <p className="text-xs text-slate-500 mt-2 text-center">
           Press Enter to send, Shift+Enter for new line
         </p>
       </div>

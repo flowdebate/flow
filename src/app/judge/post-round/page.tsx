@@ -183,14 +183,14 @@ export default function PostRoundPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-            <BarChart3 className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+            <BarChart3 className="w-5 h-5 text-cyan-400" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-slate-900">
+            <h1 className="text-xl font-bold text-slate-100">
               Post-Round Analysis
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-400">
               Balanced summary and clash identification for decision-making
             </p>
           </div>
@@ -199,19 +199,19 @@ export default function PostRoundPage() {
         {!hasAnalyzed ? (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Debate Format
               </label>
               <FormatSelector
                 selectedFormat={format}
                 onFormatChange={setFormat}
-                accentColor="amber"
+                accentColor="cyan"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Pro / Aff Notes
                 </label>
                 <textarea
@@ -219,11 +219,11 @@ export default function PostRoundPage() {
                   onChange={(e) => setProNotes(e.target.value)}
                   placeholder="Paste your flow notes for the Pro/Aff side..."
                   rows={12}
-                  className="w-full rounded-xl border border-blue-200 bg-blue-50/30 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-slate-400 resize-none"
+                  className="w-full rounded-xl border border-blue-500/20 bg-blue-500/5 px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder:text-slate-500 resize-none"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Con / Neg Notes
                 </label>
                 <textarea
@@ -231,7 +231,7 @@ export default function PostRoundPage() {
                   onChange={(e) => setConNotes(e.target.value)}
                   placeholder="Paste your flow notes for the Con/Neg side..."
                   rows={12}
-                  className="w-full rounded-xl border border-red-200 bg-red-50/30 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder:text-slate-400 resize-none"
+                  className="w-full rounded-xl border border-red-500/20 bg-red-500/5 px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent placeholder:text-slate-500 resize-none"
                 />
               </div>
             </div>
@@ -239,7 +239,7 @@ export default function PostRoundPage() {
             <button
               onClick={handleAnalyze}
               disabled={!proNotes.trim() || !conNotes.trim()}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <BarChart3 className="w-5 h-5" />
               Analyze Round
@@ -248,7 +248,7 @@ export default function PostRoundPage() {
         ) : isAnalyzing ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-8 h-8 text-blue-500 animate-spin mb-4" />
-            <p className="text-sm text-slate-600 font-medium">
+            <p className="text-sm text-slate-400 font-medium">
               Analyzing round...
             </p>
             <p className="text-xs text-slate-400 mt-1">
@@ -263,15 +263,15 @@ export default function PostRoundPage() {
                 setSummary(null);
                 setMessages([]);
               }}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-blue-400 hover:text-blue-400 font-medium"
             >
               &larr; Analyze another round
             </button>
 
             {/* Neutrality reminder */}
-            <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-50 border border-amber-200">
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
               <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0" />
-              <p className="text-xs text-amber-700">
+              <p className="text-xs text-amber-400">
                 This analysis presents both sides neutrally. It does not
                 indicate a winner or recommend a decision.
               </p>
@@ -282,9 +282,9 @@ export default function PostRoundPage() {
                 {/* Side-by-Side Arguments */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Pro Side */}
-                  <div className="rounded-xl border border-blue-200 bg-white overflow-hidden">
-                    <div className="px-4 py-3 bg-blue-50 border-b border-blue-200">
-                      <h3 className="text-sm font-semibold text-blue-900">
+                  <div className="rounded-xl border border-blue-500/20 bg-slate-800/50 overflow-hidden">
+                    <div className="px-4 py-3 bg-blue-500/10 border-b border-blue-500/20">
+                      <h3 className="text-sm font-semibold text-blue-300">
                         Pro / Aff Arguments
                       </h3>
                     </div>
@@ -292,26 +292,26 @@ export default function PostRoundPage() {
                       {summary.proArguments.map((arg, i) => (
                         <div
                           key={i}
-                          className="p-3 rounded-lg border border-slate-100"
+                          className="p-3 rounded-lg border border-slate-700/50"
                         >
                           <div className="flex items-center gap-2 mb-1">
                             {statusIcon(arg.status)}
-                            <span className="text-sm font-medium text-slate-900">
+                            <span className="text-sm font-medium text-slate-100">
                               {arg.tag}
                             </span>
                             <span
                               className={`text-xs px-1.5 py-0.5 rounded capitalize ${
                                 arg.status === "extended"
-                                  ? "bg-emerald-50 text-emerald-700"
+                                  ? "bg-emerald-500/10 text-emerald-400"
                                   : arg.status === "dropped"
-                                    ? "bg-red-50 text-red-700"
-                                    : "bg-amber-50 text-amber-700"
+                                    ? "bg-red-500/10 text-red-400"
+                                    : "bg-amber-500/10 text-amber-400"
                               }`}
                             >
                               {arg.status}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-600 mb-1">
+                          <p className="text-xs text-slate-400 mb-1">
                             {arg.summary}
                           </p>
                           <p className="text-xs text-slate-400">
@@ -323,9 +323,9 @@ export default function PostRoundPage() {
                   </div>
 
                   {/* Con Side */}
-                  <div className="rounded-xl border border-red-200 bg-white overflow-hidden">
-                    <div className="px-4 py-3 bg-red-50 border-b border-red-200">
-                      <h3 className="text-sm font-semibold text-red-900">
+                  <div className="rounded-xl border border-red-500/20 bg-slate-800/50 overflow-hidden">
+                    <div className="px-4 py-3 bg-red-500/10 border-b border-red-500/20">
+                      <h3 className="text-sm font-semibold text-red-300">
                         Con / Neg Arguments
                       </h3>
                     </div>
@@ -333,26 +333,26 @@ export default function PostRoundPage() {
                       {summary.conArguments.map((arg, i) => (
                         <div
                           key={i}
-                          className="p-3 rounded-lg border border-slate-100"
+                          className="p-3 rounded-lg border border-slate-700/50"
                         >
                           <div className="flex items-center gap-2 mb-1">
                             {statusIcon(arg.status)}
-                            <span className="text-sm font-medium text-slate-900">
+                            <span className="text-sm font-medium text-slate-100">
                               {arg.tag}
                             </span>
                             <span
                               className={`text-xs px-1.5 py-0.5 rounded capitalize ${
                                 arg.status === "extended"
-                                  ? "bg-emerald-50 text-emerald-700"
+                                  ? "bg-emerald-500/10 text-emerald-400"
                                   : arg.status === "dropped"
-                                    ? "bg-red-50 text-red-700"
-                                    : "bg-amber-50 text-amber-700"
+                                    ? "bg-red-500/10 text-red-400"
+                                    : "bg-amber-500/10 text-amber-400"
                               }`}
                             >
                               {arg.status}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-600 mb-1">
+                          <p className="text-xs text-slate-400 mb-1">
                             {arg.summary}
                           </p>
                           <p className="text-xs text-slate-400">
@@ -365,11 +365,11 @@ export default function PostRoundPage() {
                 </div>
 
                 {/* Key Clash Points */}
-                <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                  <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
+                <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 overflow-hidden">
+                  <div className="px-4 py-3 bg-slate-800/50 border-b border-slate-700">
                     <div className="flex items-center gap-2">
-                      <Scale className="w-4 h-4 text-slate-600" />
-                      <h3 className="text-sm font-semibold text-slate-900">
+                      <Scale className="w-4 h-4 text-slate-400" />
+                      <h3 className="text-sm font-semibold text-slate-100">
                         Key Clash Points
                       </h3>
                     </div>
@@ -378,16 +378,16 @@ export default function PostRoundPage() {
                     {summary.clashPoints.map((point, i) => (
                       <div key={i} className="flex items-start gap-2">
                         <ArrowRight className="w-3.5 h-3.5 text-slate-400 mt-1 flex-shrink-0" />
-                        <p className="text-sm text-slate-700">{point}</p>
+                        <p className="text-sm text-slate-300">{point}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Dropped Arguments */}
-                <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                  <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
-                    <h3 className="text-sm font-semibold text-slate-900">
+                <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 overflow-hidden">
+                  <div className="px-4 py-3 bg-slate-800/50 border-b border-slate-700">
+                    <h3 className="text-sm font-semibold text-slate-100">
                       Dropped Arguments
                     </h3>
                   </div>
@@ -402,13 +402,13 @@ export default function PostRoundPage() {
                           <span
                             className={`text-xs font-medium px-1.5 py-0.5 rounded ${
                               drop.side === "Pro"
-                                ? "bg-blue-50 text-blue-700"
-                                : "bg-red-50 text-red-700"
+                                ? "bg-blue-500/10 text-blue-400"
+                                : "bg-red-500/10 text-red-400"
                             }`}
                           >
                             {drop.side}
                           </span>
-                          <span className="text-sm text-slate-700 ml-2">
+                          <span className="text-sm text-slate-300 ml-2">
                             {drop.argument}
                           </span>
                         </div>
@@ -418,25 +418,25 @@ export default function PostRoundPage() {
                 </div>
 
                 {/* Weighing */}
-                <div className="rounded-xl border border-slate-200 bg-white overflow-hidden">
-                  <div className="px-4 py-3 bg-slate-50 border-b border-slate-200">
-                    <h3 className="text-sm font-semibold text-slate-900">
+                <div className="rounded-xl border border-slate-700/50 bg-slate-800/50 overflow-hidden">
+                  <div className="px-4 py-3 bg-slate-800/50 border-b border-slate-700">
+                    <h3 className="text-sm font-semibold text-slate-100">
                       Comparative Weighing
                     </h3>
                   </div>
                   <div className="p-4 space-y-3">
                     {summary.weighing.map((w, i) => (
-                      <div key={i} className="p-3 rounded-lg bg-slate-50">
+                      <div key={i} className="p-3 rounded-lg bg-slate-800/50">
                         <span
                           className={`text-xs font-medium px-1.5 py-0.5 rounded ${
                             w.side === "Pro"
-                              ? "bg-blue-100 text-blue-700"
-                              : "bg-red-100 text-red-700"
+                              ? "bg-blue-500/10 text-blue-400"
+                              : "bg-red-500/10 text-red-400"
                           }`}
                         >
                           {w.side}
                         </span>
-                        <p className="text-sm text-slate-700 mt-1">
+                        <p className="text-sm text-slate-300 mt-1">
                           {w.mechanism}
                         </p>
                       </div>
@@ -447,12 +447,12 @@ export default function PostRoundPage() {
             )}
 
             {/* Follow-up Chat */}
-            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
-              <div className="px-5 py-4 border-b border-slate-100 bg-slate-50">
-                <h3 className="font-semibold text-slate-900 text-sm">
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-800/50 overflow-hidden">
+              <div className="px-5 py-4 border-b border-slate-700/50 bg-slate-800/50">
+                <h3 className="font-semibold text-slate-100 text-sm">
                   Questions about this analysis?
                 </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   Ask for clarification on specific arguments or clash points.
                 </p>
               </div>
@@ -466,20 +466,20 @@ export default function PostRoundPage() {
                     >
                       <div
                         className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center ${
-                          msg.role === "user" ? "bg-slate-900" : "bg-blue-50"
+                          msg.role === "user" ? "bg-teal-600" : "bg-cyan-500/10"
                         }`}
                       >
                         {msg.role === "user" ? (
                           <User className="w-3.5 h-3.5 text-white" />
                         ) : (
-                          <Bot className="w-3.5 h-3.5 text-blue-600" />
+                          <Bot className="w-3.5 h-3.5 text-cyan-400" />
                         )}
                       </div>
                       <div
                         className={`max-w-[80%] rounded-xl px-3.5 py-2.5 text-sm ${
                           msg.role === "user"
-                            ? "bg-slate-900 text-white"
-                            : "bg-slate-100 text-slate-800"
+                            ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
+                            : "bg-slate-800 text-slate-200 border border-slate-700/50"
                         }`}
                       >
                         <div className="whitespace-pre-wrap">{msg.content}</div>
@@ -488,10 +488,10 @@ export default function PostRoundPage() {
                   ))}
                   {isLoadingChat && (
                     <div className="flex gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
-                        <Bot className="w-3.5 h-3.5 text-blue-600" />
+                      <div className="w-7 h-7 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <Bot className="w-3.5 h-3.5 text-cyan-400" />
                       </div>
-                      <div className="bg-slate-100 rounded-xl px-3.5 py-2.5">
+                      <div className="bg-slate-700/50 rounded-xl px-3.5 py-2.5">
                         <Loader2 className="w-4 h-4 text-slate-400 animate-spin" />
                       </div>
                     </div>
@@ -499,7 +499,7 @@ export default function PostRoundPage() {
                 </div>
               )}
 
-              <div className="px-5 py-3 border-t border-slate-100">
+              <div className="px-5 py-3 border-t border-slate-700/50">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -511,12 +511,12 @@ export default function PostRoundPage() {
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     placeholder="Ask about specific arguments, clash, or weighing..."
-                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-slate-400"
+                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-700 bg-slate-800 rounded-xl text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder:text-slate-500"
                   />
                   <button
                     type="submit"
                     disabled={!chatInput.trim() || isLoadingChat}
-                    className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4" />
                   </button>

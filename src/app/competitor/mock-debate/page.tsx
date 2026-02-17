@@ -162,14 +162,14 @@ export default function MockDebatePage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
           {/* Header */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
-              <Swords className="w-5 h-5 text-purple-600" />
+            <div className="w-10 h-10 rounded-xl bg-teal-600/10 flex items-center justify-center">
+              <Swords className="w-5 h-5 text-teal-400" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-slate-900">
+              <h1 className="text-xl font-bold text-slate-100">
                 Mock Debate Sparring Partner
               </h1>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-slate-400">
                 Practice against an AI opponent that challenges your arguments
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function MockDebatePage() {
           <div className="space-y-6">
             {/* Format */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Debate Format
               </label>
               <FormatSelector
@@ -190,7 +190,7 @@ export default function MockDebatePage() {
 
             {/* Topic */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Resolution / Topic
               </label>
               <textarea
@@ -198,14 +198,14 @@ export default function MockDebatePage() {
                 onChange={(e) => setTopic(e.target.value)}
                 placeholder="Enter the debate resolution or topic..."
                 rows={2}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder:text-slate-400 resize-none"
+                className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500 resize-none"
               />
             </div>
 
             {/* Side & Mode */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Your Side
                 </label>
                 <div className="flex gap-2">
@@ -213,8 +213,8 @@ export default function MockDebatePage() {
                     onClick={() => setSide("pro")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       side === "pro"
-                        ? "border-purple-300 bg-purple-50 text-purple-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Pro / Aff
@@ -223,8 +223,8 @@ export default function MockDebatePage() {
                     onClick={() => setSide("con")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       side === "con"
-                        ? "border-purple-300 bg-purple-50 text-purple-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Con / Neg
@@ -232,7 +232,7 @@ export default function MockDebatePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Mode
                 </label>
                 <div className="flex gap-2">
@@ -240,8 +240,8 @@ export default function MockDebatePage() {
                     onClick={() => setMode("debate")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       mode === "debate"
-                        ? "border-purple-300 bg-purple-50 text-purple-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Full Debate
@@ -250,8 +250,8 @@ export default function MockDebatePage() {
                     onClick={() => setMode("cross-ex")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       mode === "cross-ex"
-                        ? "border-purple-300 bg-purple-50 text-purple-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Cross-Ex Only
@@ -262,7 +262,7 @@ export default function MockDebatePage() {
 
             {/* Difficulty */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Difficulty Level
               </label>
               <div className="flex gap-2">
@@ -273,8 +273,8 @@ export default function MockDebatePage() {
                       onClick={() => setDifficulty(level)}
                       className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border capitalize ${
                         difficulty === level
-                          ? "border-purple-300 bg-purple-50 text-purple-700"
-                          : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                          ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                          : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                       }`}
                     >
                       {level}
@@ -295,7 +295,7 @@ export default function MockDebatePage() {
             <button
               onClick={handleStart}
               disabled={!topic.trim()}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Swords className="w-5 h-5" />
               Start Sparring
@@ -315,25 +315,25 @@ export default function MockDebatePage() {
   return (
     <div className="flex flex-col h-full">
       {/* Session Header */}
-      <div className="flex-shrink-0 border-b border-slate-200 bg-white px-4 py-3">
+      <div className="flex-shrink-0 border-b border-slate-700 bg-slate-800 px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
-              <Swords className="w-4 h-4 text-purple-600" />
+            <div className="w-8 h-8 rounded-lg bg-teal-600/10 flex items-center justify-center">
+              <Swords className="w-4 h-4 text-teal-400" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-slate-900">
+                <span className="text-sm font-semibold text-slate-100">
                   Mock {mode === "cross-ex" ? "Cross-Ex" : "Debate"}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 font-medium">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-teal-600/10 text-teal-400 font-medium">
                   {currentFormat?.name}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 font-medium capitalize">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-slate-700/50 text-slate-400 font-medium capitalize">
                   {difficulty}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 truncate max-w-md">
+              <p className="text-xs text-slate-400 truncate max-w-md">
                 {topic}
               </p>
             </div>
@@ -342,7 +342,7 @@ export default function MockDebatePage() {
             <Timer initialSeconds={0} countDown={false} label="Round" />
             <button
               onClick={handleReset}
-              className="p-2 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+              className="p-2 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-slate-300"
               title="Reset round"
             >
               <RotateCcw className="w-4 h-4" />
@@ -363,7 +363,7 @@ export default function MockDebatePage() {
             }`}
           >
             {msg.role === "system" ? (
-              <div className="text-xs text-slate-400 bg-slate-50 px-4 py-2 rounded-full border border-slate-200">
+              <div className="text-xs text-slate-400 bg-slate-800/50 px-4 py-2 rounded-full border border-slate-700">
                 {msg.content.split("\n").map((line, i) => (
                   <span key={i}>
                     {line}
@@ -375,13 +375,13 @@ export default function MockDebatePage() {
               <>
                 <div
                   className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center ${
-                    msg.role === "user" ? "bg-slate-900" : "bg-purple-50"
+                    msg.role === "user" ? "bg-slate-900" : "bg-teal-600/10"
                   }`}
                 >
                   {msg.role === "user" ? (
                     <User className="w-4 h-4 text-white" />
                   ) : (
-                    <Bot className="w-4 h-4 text-purple-600" />
+                    <Bot className="w-4 h-4 text-teal-400" />
                   )}
                 </div>
                 <div className={`max-w-[80%] ${msg.role === "user" ? "text-right" : ""}`}>
@@ -389,8 +389,8 @@ export default function MockDebatePage() {
                     <span
                       className={`inline-block text-xs font-medium mb-1 px-2 py-0.5 rounded-full ${
                         msg.role === "user"
-                          ? "bg-blue-100 text-blue-700"
-                          : "bg-purple-100 text-purple-700"
+                          ? "bg-teal-600/10 text-teal-400"
+                          : "bg-teal-600/10 text-teal-400"
                       }`}
                     >
                       {msg.speechLabel}
@@ -399,8 +399,8 @@ export default function MockDebatePage() {
                   <div
                     className={`rounded-xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${
                       msg.role === "user"
-                        ? "bg-slate-900 text-white"
-                        : "bg-slate-100 text-slate-800"
+                        ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
+                        : "bg-slate-800 text-slate-200 border border-slate-700/50"
                     }`}
                   >
                     {msg.content}
@@ -412,11 +412,11 @@ export default function MockDebatePage() {
         ))}
         {isLoading && (
           <div className="chat-message flex gap-3">
-            <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
-              <Bot className="w-4 h-4 text-purple-600" />
+            <div className="w-8 h-8 rounded-lg bg-teal-600/10 flex items-center justify-center">
+              <Bot className="w-4 h-4 text-teal-400" />
             </div>
-            <div className="bg-slate-100 rounded-xl px-4 py-3">
-              <div className="flex items-center gap-2 text-sm text-slate-500">
+            <div className="bg-slate-700/50 rounded-xl px-4 py-3">
+              <div className="flex items-center gap-2 text-sm text-slate-400">
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Preparing response...
               </div>
@@ -427,7 +427,7 @@ export default function MockDebatePage() {
       </div>
 
       {/* Input */}
-      <div className="flex-shrink-0 border-t border-slate-200 p-4 bg-white">
+      <div className="flex-shrink-0 border-t border-slate-700 p-4 bg-slate-800">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -446,12 +446,12 @@ export default function MockDebatePage() {
                 : "Present your arguments..."
             }
             rows={1}
-            className="flex-1 resize-none rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent placeholder:text-slate-400"
+            className="flex-1 resize-none rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500"
           />
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="flex-shrink-0 p-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex-shrink-0 p-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <Loader2 className="w-5 h-5 animate-spin" />

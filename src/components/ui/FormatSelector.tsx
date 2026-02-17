@@ -8,16 +8,7 @@ export const DEBATE_FORMATS = [
     id: "policy",
     name: "Policy (CX)",
     description: "Two-team format with plan/counterplan advocacy",
-    speeches: [
-      "1AC",
-      "1NC",
-      "2AC",
-      "2NC",
-      "1NR",
-      "1AR",
-      "2NR",
-      "2AR",
-    ],
+    speeches: ["1AC", "1NC", "2AC", "2NC", "1NR", "1AR", "2NR", "2AR"],
   },
   {
     id: "ld",
@@ -90,44 +81,50 @@ export type DebateFormat = (typeof DEBATE_FORMATS)[number];
 interface FormatSelectorProps {
   selectedFormat: string;
   onFormatChange: (formatId: string) => void;
-  accentColor?: "blue" | "amber";
+  accentColor?: "blue" | "amber" | "teal" | "cyan";
 }
 
 export default function FormatSelector({
   selectedFormat,
   onFormatChange,
-  accentColor = "blue",
+  accentColor = "teal",
 }: FormatSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const currentFormat = DEBATE_FORMATS.find((f) => f.id === selectedFormat);
 
-  const borderFocus =
-    accentColor === "blue" ? "focus:ring-blue-500" : "focus:ring-amber-500";
+  const focusRing =
+    accentColor === "teal"
+      ? "focus:ring-teal-500"
+      : accentColor === "cyan"
+        ? "focus:ring-cyan-500"
+        : accentColor === "amber"
+          ? "focus:ring-amber-500"
+          : "focus:ring-blue-500";
 
   return (
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full flex items-center justify-between gap-2 px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-sm hover:border-slate-400 focus:outline-none focus:ring-2 ${borderFocus}`}
+        className={`w-full flex items-center justify-between gap-2 px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 text-sm hover:border-slate-600 focus:outline-none focus:ring-2 ${focusRing}`}
       >
         <div className="text-left">
-          <span className="font-medium text-slate-900">
+          <span className="font-medium text-slate-100">
             {currentFormat?.name || "Select format"}
           </span>
           {currentFormat && (
-            <span className="text-slate-500 ml-2">
+            <span className="text-slate-400 ml-2">
               {currentFormat.description}
             </span>
           )}
         </div>
         <ChevronDown
-          className={`w-4 h-4 text-slate-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? "rotate-180" : ""}`}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg overflow-hidden">
+        <div className="absolute z-20 top-full left-0 right-0 mt-1 bg-slate-800 border border-slate-700 rounded-xl shadow-xl overflow-hidden">
           {DEBATE_FORMATS.map((format) => (
             <button
               key={format.id}
@@ -135,14 +132,14 @@ export default function FormatSelector({
                 onFormatChange(format.id);
                 setIsOpen(false);
               }}
-              className={`w-full text-left px-4 py-3 hover:bg-slate-50 border-b border-slate-100 last:border-0 ${
-                format.id === selectedFormat ? "bg-slate-50" : ""
+              className={`w-full text-left px-4 py-3 hover:bg-slate-700/50 border-b border-slate-700/50 last:border-0 ${
+                format.id === selectedFormat ? "bg-slate-700/30" : ""
               }`}
             >
-              <span className="text-sm font-medium text-slate-900">
+              <span className="text-sm font-medium text-slate-100">
                 {format.name}
               </span>
-              <span className="block text-xs text-slate-500 mt-0.5">
+              <span className="block text-xs text-slate-400 mt-0.5">
                 {format.description}
               </span>
             </button>

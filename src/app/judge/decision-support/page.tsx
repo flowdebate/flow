@@ -135,14 +135,14 @@ export default function DecisionSupportPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center">
-            <HelpCircle className="w-5 h-5 text-teal-600" />
+          <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+            <HelpCircle className="w-5 h-5 text-cyan-400" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-slate-900">
+            <h1 className="text-xl font-bold text-slate-100">
               Decision-Making Support
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-400">
               Evaluate arguments using standard debate frameworks
             </p>
           </div>
@@ -151,18 +151,18 @@ export default function DecisionSupportPage() {
         {!hasAnalyzed ? (
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Debate Format
               </label>
               <FormatSelector
                 selectedFormat={format}
                 onFormatChange={setFormat}
-                accentColor="amber"
+                accentColor="cyan"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Round Notes / Flow
               </label>
               <textarea
@@ -170,14 +170,14 @@ export default function DecisionSupportPage() {
                 onChange={(e) => setRoundNotes(e.target.value)}
                 placeholder="Paste your complete round notes, flow, or the output from the Post-Round Analysis tool..."
                 rows={14}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-400 resize-none"
+                className="w-full rounded-xl border border-slate-700 px-4 py-3 text-sm bg-slate-800 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder:text-slate-500 resize-none"
               />
             </div>
 
             <button
               onClick={handleAnalyze}
               disabled={!roundNotes.trim()}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Layers className="w-5 h-5" />
               Generate Decision Framework
@@ -192,7 +192,7 @@ export default function DecisionSupportPage() {
         ) : isAnalyzing ? (
           <div className="flex flex-col items-center justify-center py-20">
             <Loader2 className="w-8 h-8 text-teal-500 animate-spin mb-4" />
-            <p className="text-sm text-slate-600 font-medium">
+            <p className="text-sm text-slate-400 font-medium">
               Building decision framework...
             </p>
             <p className="text-xs text-slate-400 mt-1">
@@ -208,15 +208,15 @@ export default function DecisionSupportPage() {
                 setMessages([]);
                 setRoundNotes("");
               }}
-              className="text-sm text-teal-600 hover:text-teal-700 font-medium"
+              className="text-sm text-teal-400 hover:text-teal-400 font-medium"
             >
               &larr; Analyze another round
             </button>
 
             {/* Neutrality reminder */}
-            <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-50 border border-amber-200">
+            <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
               <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0" />
-              <p className="text-xs text-amber-700">
+              <p className="text-xs text-amber-400">
                 This framework presents arguments from both sides without
                 prejudgment. Use it to structure your thinking, not as a
                 decision.
@@ -226,14 +226,14 @@ export default function DecisionSupportPage() {
             {framework && (
               <>
                 {/* Framework Header */}
-                <div className="rounded-xl border border-teal-200 bg-teal-50/50 p-5">
+                <div className="rounded-xl border border-teal-500/20 bg-teal-500/5 p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <Scale className="w-5 h-5 text-teal-600" />
-                    <h2 className="font-bold text-slate-900">
+                    <Scale className="w-5 h-5 text-teal-400" />
+                    <h2 className="font-bold text-slate-100">
                       {framework.name}
                     </h2>
                   </div>
-                  <p className="text-sm text-slate-600 leading-relaxed">
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {framework.description}
                   </p>
                 </div>
@@ -242,46 +242,46 @@ export default function DecisionSupportPage() {
                 {framework.criteria.map((criterion, i) => (
                   <div
                     key={i}
-                    className="animate-fade-in rounded-xl border border-slate-200 bg-white overflow-hidden"
+                    className="animate-fade-in rounded-xl border border-slate-700/50 bg-slate-800/50 overflow-hidden"
                     style={{ animationDelay: `${i * 100}ms` }}
                   >
-                    <div className="px-5 py-3 bg-slate-50 border-b border-slate-200">
+                    <div className="px-5 py-3 bg-slate-800/50 border-b border-slate-700">
                       <div className="flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center text-xs font-bold text-teal-700">
+                        <span className="w-6 h-6 rounded-full bg-teal-500/15 flex items-center justify-center text-xs font-bold text-teal-400">
                           {i + 1}
                         </span>
-                        <h3 className="text-sm font-semibold text-slate-900">
+                        <h3 className="text-sm font-semibold text-slate-100">
                           {criterion.criterion}
                         </h3>
                       </div>
                     </div>
                     <div className="p-5">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div className="p-3 rounded-lg bg-blue-50/50 border border-blue-100">
-                          <span className="text-xs font-semibold text-blue-700 uppercase">
+                        <div className="p-3 rounded-lg bg-blue-500/5 border border-blue-500/20">
+                          <span className="text-xs font-semibold text-blue-400 uppercase">
                             Pro / Aff
                           </span>
-                          <p className="text-sm text-slate-700 mt-1">
+                          <p className="text-sm text-slate-300 mt-1">
                             {criterion.proPosition}
                           </p>
                         </div>
-                        <div className="p-3 rounded-lg bg-red-50/50 border border-red-100">
-                          <span className="text-xs font-semibold text-red-700 uppercase">
+                        <div className="p-3 rounded-lg bg-red-500/5 border border-red-500/20">
+                          <span className="text-xs font-semibold text-red-400 uppercase">
                             Con / Neg
                           </span>
-                          <p className="text-sm text-slate-700 mt-1">
+                          <p className="text-sm text-slate-300 mt-1">
                             {criterion.conPosition}
                           </p>
                         </div>
                       </div>
-                      <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                      <div className="p-3 rounded-lg bg-slate-800/50 border border-slate-700/50">
                         <div className="flex items-center gap-1.5 mb-1">
-                          <HelpCircle className="w-3.5 h-3.5 text-teal-600" />
-                          <span className="text-xs font-medium text-teal-700">
+                          <HelpCircle className="w-3.5 h-3.5 text-teal-400" />
+                          <span className="text-xs font-medium text-teal-400">
                             Evaluation Notes
                           </span>
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed">
+                        <p className="text-xs text-slate-400 leading-relaxed">
                           {criterion.notes}
                         </p>
                       </div>
@@ -292,12 +292,12 @@ export default function DecisionSupportPage() {
             )}
 
             {/* Follow-up Chat */}
-            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
-              <div className="px-5 py-4 border-b border-slate-100 bg-slate-50">
-                <h3 className="font-semibold text-slate-900 text-sm">
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-800/50 overflow-hidden">
+              <div className="px-5 py-4 border-b border-slate-700/50 bg-slate-800/50">
+                <h3 className="font-semibold text-slate-100 text-sm">
                   Need help thinking through a specific issue?
                 </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   Ask questions about evaluation criteria, framework comparison,
                   or specific arguments.
                 </p>
@@ -312,20 +312,20 @@ export default function DecisionSupportPage() {
                     >
                       <div
                         className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center ${
-                          msg.role === "user" ? "bg-slate-900" : "bg-teal-50"
+                          msg.role === "user" ? "bg-teal-600" : "bg-cyan-500/10"
                         }`}
                       >
                         {msg.role === "user" ? (
                           <User className="w-3.5 h-3.5 text-white" />
                         ) : (
-                          <Bot className="w-3.5 h-3.5 text-teal-600" />
+                          <Bot className="w-3.5 h-3.5 text-cyan-400" />
                         )}
                       </div>
                       <div
                         className={`max-w-[80%] rounded-xl px-3.5 py-2.5 text-sm ${
                           msg.role === "user"
-                            ? "bg-slate-900 text-white"
-                            : "bg-slate-100 text-slate-800"
+                            ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
+                            : "bg-slate-800 text-slate-200 border border-slate-700/50"
                         }`}
                       >
                         <div className="whitespace-pre-wrap">{msg.content}</div>
@@ -334,10 +334,10 @@ export default function DecisionSupportPage() {
                   ))}
                   {isLoadingChat && (
                     <div className="flex gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-teal-50 flex items-center justify-center">
-                        <Bot className="w-3.5 h-3.5 text-teal-600" />
+                      <div className="w-7 h-7 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+                        <Bot className="w-3.5 h-3.5 text-cyan-400" />
                       </div>
-                      <div className="bg-slate-100 rounded-xl px-3.5 py-2.5">
+                      <div className="bg-slate-800 border border-slate-700/50 rounded-xl px-3.5 py-2.5">
                         <Loader2 className="w-4 h-4 text-slate-400 animate-spin" />
                       </div>
                     </div>
@@ -345,7 +345,7 @@ export default function DecisionSupportPage() {
                 </div>
               )}
 
-              <div className="px-5 py-3 border-t border-slate-100">
+              <div className="px-5 py-3 border-t border-slate-700/50">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -357,12 +357,12 @@ export default function DecisionSupportPage() {
                     value={chatInput}
                     onChange={(e) => setChatInput(e.target.value)}
                     placeholder="Ask about evaluation criteria or framework application..."
-                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-400"
+                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-700 rounded-xl bg-slate-800 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder:text-slate-500"
                   />
                   <button
                     type="submit"
                     disabled={!chatInput.trim() || isLoadingChat}
-                    className="p-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4" />
                   </button>

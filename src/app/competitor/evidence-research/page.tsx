@@ -162,13 +162,13 @@ export default function EvidenceResearchPage() {
 
   const getSourceTypeColor = (type: string) => {
     const colors: Record<string, { bg: string; text: string }> = {
-      academic: { bg: "bg-blue-100", text: "text-blue-700" },
-      "think-tank": { bg: "bg-purple-100", text: "text-purple-700" },
-      government: { bg: "bg-emerald-100", text: "text-emerald-700" },
-      news: { bg: "bg-amber-100", text: "text-amber-700" },
-      ngo: { bg: "bg-teal-100", text: "text-teal-700" },
+      academic: { bg: "bg-blue-500/10", text: "text-blue-400" },
+      "think-tank": { bg: "bg-purple-500/10", text: "text-purple-400" },
+      government: { bg: "bg-emerald-500/10", text: "text-emerald-400" },
+      news: { bg: "bg-amber-500/10", text: "text-amber-400" },
+      ngo: { bg: "bg-teal-500/10", text: "text-teal-400" },
     };
-    return colors[type] || { bg: "bg-slate-100", text: "text-slate-700" };
+    return colors[type] || { bg: "bg-slate-700/50", text: "text-slate-300" };
   };
 
   const filteredSources =
@@ -181,27 +181,27 @@ export default function EvidenceResearchPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
-            <Search className="w-5 h-5 text-emerald-600" />
+          <div className="w-10 h-10 rounded-xl bg-teal-600/10 flex items-center justify-center">
+            <Search className="w-5 h-5 text-teal-400" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-slate-900">
+            <h1 className="text-xl font-bold text-slate-100">
               Evidence Research Assistant
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-400">
               Find credible evidence and understand its relevance to your case
             </p>
           </div>
         </div>
 
         {/* Ethical Note */}
-        <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-50 border border-amber-200 mb-6">
-          <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 mb-6">
+          <AlertCircle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-amber-800">
+            <p className="text-sm font-medium text-amber-400">
               Evidence, not arguments
             </p>
-            <p className="text-xs text-amber-700 mt-0.5">
+            <p className="text-xs text-amber-400 mt-0.5">
               Flow helps you find and understand evidence, but the argumentative
               work of connecting evidence to claims is yours. We present sources
               neutrally and explain context, not how to argue.
@@ -224,13 +224,13 @@ export default function EvidenceResearchPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for evidence on a topic, e.g., 'renewable energy economic impact'..."
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent placeholder:text-slate-400"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500"
                 />
               </div>
               <button
                 type="submit"
                 disabled={!searchQuery.trim() || isSearching}
-                className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-5 py-3 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {isSearching ? (
                   <Loader2 className="w-4 h-4 animate-spin" />
@@ -253,8 +253,8 @@ export default function EvidenceResearchPage() {
                     onClick={() => setSourceType(type.id)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
                       sourceType === type.id
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+                        ? "bg-emerald-500/10 text-emerald-400"
+                        : "bg-slate-700/50 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     {type.label}
@@ -269,7 +269,7 @@ export default function EvidenceResearchPage() {
         {isSearching && (
           <div className="flex flex-col items-center justify-center py-16">
             <Loader2 className="w-8 h-8 text-emerald-500 animate-spin mb-4" />
-            <p className="text-sm text-slate-600 font-medium">
+            <p className="text-sm text-slate-400 font-medium">
               Searching for evidence...
             </p>
             <p className="text-xs text-slate-400 mt-1">
@@ -282,7 +282,7 @@ export default function EvidenceResearchPage() {
         {!isSearching && hasSearched && (
           <div className="space-y-4 mb-8">
             <div className="flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-slate-900">
+              <h2 className="text-sm font-semibold text-slate-100">
                 {filteredSources.length} source
                 {filteredSources.length !== 1 ? "s" : ""} found
               </h2>
@@ -293,7 +293,7 @@ export default function EvidenceResearchPage() {
               return (
                 <div
                   key={source.id}
-                  className="animate-fade-in rounded-xl border border-slate-200 bg-white p-5"
+                  className="animate-fade-in rounded-xl border border-slate-700/50 bg-slate-800/50 p-5"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
@@ -308,10 +308,10 @@ export default function EvidenceResearchPage() {
                           {source.date}
                         </span>
                       </div>
-                      <h3 className="font-semibold text-slate-900 text-sm mb-1">
+                      <h3 className="font-semibold text-slate-100 text-sm mb-1">
                         {source.title}
                       </h3>
-                      <div className="flex items-center gap-3 text-xs text-slate-500 mb-3">
+                      <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
                         <span className="flex items-center gap-1">
                           <User className="w-3 h-3" />
                           {source.author}
@@ -321,24 +321,24 @@ export default function EvidenceResearchPage() {
                           {source.organization}
                         </span>
                       </div>
-                      <p className="text-sm text-slate-600 mb-3">
+                      <p className="text-sm text-slate-400 mb-3">
                         {source.summary}
                       </p>
-                      <div className="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                      <div className="bg-slate-800/50 rounded-lg p-3 border border-slate-700">
                         <div className="flex items-center gap-1.5 mb-1">
-                          <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
-                          <span className="text-xs font-medium text-emerald-700">
+                          <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="text-xs font-medium text-emerald-400">
                             Relevance Notes
                           </span>
                         </div>
-                        <p className="text-xs text-slate-600 leading-relaxed">
+                        <p className="text-xs text-slate-400 leading-relaxed">
                           {source.relevance}
                         </p>
                       </div>
                     </div>
                     <a
                       href={source.url}
-                      className="flex-shrink-0 p-2 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600"
+                      className="flex-shrink-0 p-2 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-slate-300"
                       title="View source"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -351,12 +351,12 @@ export default function EvidenceResearchPage() {
         )}
 
         {/* Research Chat */}
-        <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
-          <div className="px-5 py-4 border-b border-slate-100 bg-slate-50">
-            <h3 className="font-semibold text-slate-900 text-sm">
+        <div className="rounded-2xl border border-slate-700 bg-slate-800 overflow-hidden">
+          <div className="px-5 py-4 border-b border-slate-700 bg-slate-800/50">
+            <h3 className="font-semibold text-slate-100 text-sm">
               Research Assistant
             </h3>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-slate-400 mt-0.5">
               Ask questions about evidence, sources, or topics to explore.
             </p>
           </div>
@@ -370,20 +370,20 @@ export default function EvidenceResearchPage() {
                 >
                   <div
                     className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center ${
-                      msg.role === "user" ? "bg-slate-900" : "bg-emerald-50"
+                      msg.role === "user" ? "bg-teal-600/20" : "bg-emerald-500/10"
                     }`}
                   >
                     {msg.role === "user" ? (
-                      <User className="w-3.5 h-3.5 text-white" />
+                      <User className="w-3.5 h-3.5 text-teal-400" />
                     ) : (
-                      <Bot className="w-3.5 h-3.5 text-emerald-600" />
+                      <Bot className="w-3.5 h-3.5 text-emerald-400" />
                     )}
                   </div>
                   <div
                     className={`max-w-[80%] rounded-xl px-3.5 py-2.5 text-sm ${
                       msg.role === "user"
-                        ? "bg-slate-900 text-white"
-                        : "bg-slate-100 text-slate-800"
+                        ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
+                        : "bg-slate-800 text-slate-200 border border-slate-700/50"
                     }`}
                   >
                     <div className="whitespace-pre-wrap">{msg.content}</div>
@@ -392,10 +392,10 @@ export default function EvidenceResearchPage() {
               ))}
               {isLoadingChat && (
                 <div className="flex gap-2.5">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center">
-                    <Bot className="w-3.5 h-3.5 text-emerald-600" />
+                  <div className="w-7 h-7 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                    <Bot className="w-3.5 h-3.5 text-emerald-400" />
                   </div>
-                  <div className="bg-slate-100 rounded-xl px-3.5 py-2.5">
+                  <div className="bg-slate-800 border border-slate-700/50 rounded-xl px-3.5 py-2.5">
                     <Loader2 className="w-4 h-4 text-slate-400 animate-spin" />
                   </div>
                 </div>
@@ -403,7 +403,7 @@ export default function EvidenceResearchPage() {
             </div>
           )}
 
-          <div className="px-5 py-3 border-t border-slate-100">
+          <div className="px-5 py-3 border-t border-slate-700">
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -415,12 +415,12 @@ export default function EvidenceResearchPage() {
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 placeholder="Ask about evidence, source credibility, or research strategies..."
-                className="flex-1 px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent placeholder:text-slate-400"
+                className="flex-1 px-3.5 py-2.5 text-sm border border-slate-700 bg-slate-800 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500"
               />
               <button
                 type="submit"
                 disabled={!chatInput.trim() || isLoadingChat}
-                className="p-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4" />
               </button>
