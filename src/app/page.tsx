@@ -114,13 +114,13 @@ export default function HomePage() {
               AI-powered debate coaching &amp; judging tools
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-100 tracking-tight leading-tight">
-              The AI Coach That Makes You
+              Your 24/7 Debate Coach
               <br />
-              <span className="text-gradient">Better, Not Dependent</span>
+              <span className="text-gradient">&amp; Research Partner</span>
             </h1>
             <p className="mt-6 text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
-              Expert debate coaching and judge assistance that strengthens
-              critical thinking instead of replacing it
+              Practice smarter, research faster, and sharpen your arguments
+              with format-specific coaching built to help you win rounds.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
@@ -128,7 +128,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl shadow-lg shadow-teal-600/20 w-full sm:w-auto justify-center"
               >
                 <BookOpen className="w-5 h-5" />
-                Start Coaching Free
+                Get Started
               </Link>
               <Link
                 href="/judge"
