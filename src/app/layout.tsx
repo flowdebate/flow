@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Flow | Debate Training & Judging Platform",
+  title: "Flow | AI Debate Coaching & Judge Assistant",
   description:
-    "Professional debate training tools for competitors and judges. Practice speeches, get case feedback, run mock debates, and streamline judging workflows.",
+    "The AI coach that makes you better, not dependent. Expert debate coaching and judge assistance that strengthens critical thinking instead of replacing it.",
 };
 
 export default function RootLayout({

@@ -62,7 +62,7 @@ export default function CaseFeedbackPage() {
       {
         title: "Argument Structure",
         icon: Target,
-        color: "blue",
+        color: "teal",
         items: [
           "Your contentions are clearly labeled and organized. Consider adding a brief roadmap at the start of your case to help judges follow your structure.",
           "The link chain in Contention 1 could be strengthened. Make sure each claim connects to the next with explicit warrants.",
@@ -145,14 +145,14 @@ export default function CaseFeedbackPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {/* Header */}
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-            <FileText className="w-5 h-5 text-blue-600" />
+          <div className="w-10 h-10 rounded-xl bg-teal-600/10 flex items-center justify-center">
+            <FileText className="w-5 h-5 text-teal-400" />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-slate-900">
+            <h1 className="text-xl font-bold text-slate-100">
               Case Feedback &amp; Analysis
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-slate-400">
               Upload your case for detailed, constructive feedback
             </p>
           </div>
@@ -163,17 +163,17 @@ export default function CaseFeedbackPage() {
             {/* Format & Side Selection */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Debate Format
                 </label>
                 <FormatSelector
                   selectedFormat={format}
                   onFormatChange={setFormat}
-                  accentColor="blue"
+                  accentColor="teal"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Side
                 </label>
                 <div className="flex gap-2">
@@ -181,8 +181,8 @@ export default function CaseFeedbackPage() {
                     onClick={() => setSide("pro")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       side === "pro"
-                        ? "border-blue-300 bg-blue-50 text-blue-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Pro / Aff
@@ -191,8 +191,8 @@ export default function CaseFeedbackPage() {
                     onClick={() => setSide("con")}
                     className={`flex-1 py-2.5 px-4 rounded-xl text-sm font-medium border ${
                       side === "con"
-                        ? "border-blue-300 bg-blue-50 text-blue-700"
-                        : "border-slate-300 bg-white text-slate-600 hover:bg-slate-50"
+                        ? "border-teal-600/20 bg-teal-600/10 text-teal-400"
+                        : "border-slate-700 bg-slate-800 text-slate-400 hover:bg-slate-700"
                     }`}
                   >
                     Con / Neg
@@ -203,7 +203,7 @@ export default function CaseFeedbackPage() {
 
             {/* File Upload */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Upload Your Case
               </label>
               <FileUpload
@@ -211,13 +211,13 @@ export default function CaseFeedbackPage() {
                 accept=".pdf,.doc,.docx,.txt"
                 label="Drop your case file here"
                 description="PDF, Word, or text files up to 10MB"
-                accentColor="blue"
+                accentColor="teal"
               />
             </div>
 
             {/* Text Input */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Or Paste Your Case
               </label>
               <textarea
@@ -225,7 +225,7 @@ export default function CaseFeedbackPage() {
                 onChange={(e) => setCaseText(e.target.value)}
                 placeholder="Paste the full text of your debate case here..."
                 rows={12}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-slate-400 resize-none"
+                className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500 resize-none"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function CaseFeedbackPage() {
             <button
               onClick={handleSubmit}
               disabled={!caseText.trim()}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Shield className="w-5 h-5" />
               Analyze My Case
@@ -246,8 +246,8 @@ export default function CaseFeedbackPage() {
           </div>
         ) : isAnalyzing ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 text-blue-500 animate-spin mb-4" />
-            <p className="text-sm text-slate-600 font-medium">
+            <Loader2 className="w-8 h-8 text-teal-500 animate-spin mb-4" />
+            <p className="text-sm text-slate-400 font-medium">
               Analyzing your case...
             </p>
             <p className="text-xs text-slate-400 mt-1">
@@ -264,7 +264,7 @@ export default function CaseFeedbackPage() {
                 setMessages([]);
                 setCaseText("");
               }}
-              className="text-sm text-blue-600 hover:text-blue-700 font-medium"
+              className="text-sm text-teal-400 hover:text-teal-300 font-medium"
             >
               &larr; Analyze another case
             </button>
@@ -275,12 +275,12 @@ export default function CaseFeedbackPage() {
             ))}
 
             {/* Follow-up Chat */}
-            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
-              <div className="px-5 py-4 border-b border-slate-100 bg-slate-50">
-                <h3 className="font-semibold text-slate-900 text-sm">
+            <div className="rounded-2xl border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm overflow-hidden">
+              <div className="px-5 py-4 border-b border-slate-700 bg-slate-800/50">
+                <h3 className="font-semibold text-slate-100 text-sm">
                   Questions about this feedback?
                 </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
+                <p className="text-xs text-slate-400 mt-0.5">
                   Ask follow-up questions to dig deeper into any area of
                   feedback.
                 </p>
@@ -296,21 +296,21 @@ export default function CaseFeedbackPage() {
                       <div
                         className={`flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center ${
                           msg.role === "user"
-                            ? "bg-slate-900"
-                            : "bg-blue-50"
+                            ? "bg-teal-600"
+                            : "bg-teal-500/10"
                         }`}
                       >
                         {msg.role === "user" ? (
                           <User className="w-3.5 h-3.5 text-white" />
                         ) : (
-                          <Bot className="w-3.5 h-3.5 text-blue-600" />
+                          <Bot className="w-3.5 h-3.5 text-teal-400" />
                         )}
                       </div>
                       <div
                         className={`max-w-[80%] rounded-xl px-3.5 py-2.5 text-sm ${
                           msg.role === "user"
-                            ? "bg-slate-900 text-white"
-                            : "bg-slate-100 text-slate-800"
+                            ? "bg-teal-600/20 text-slate-100 border border-teal-600/20"
+                            : "bg-slate-800 text-slate-200 border border-slate-700/50"
                         }`}
                       >
                         <div className="whitespace-pre-wrap">
@@ -321,10 +321,10 @@ export default function CaseFeedbackPage() {
                   ))}
                   {isLoadingChat && (
                     <div className="flex gap-2.5">
-                      <div className="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
-                        <Bot className="w-3.5 h-3.5 text-blue-600" />
+                      <div className="w-7 h-7 rounded-lg bg-teal-500/10 flex items-center justify-center">
+                        <Bot className="w-3.5 h-3.5 text-teal-400" />
                       </div>
-                      <div className="bg-slate-100 rounded-xl px-3.5 py-2.5">
+                      <div className="bg-slate-800 border border-slate-700/50 rounded-xl px-3.5 py-2.5">
                         <Loader2 className="w-4 h-4 text-slate-400 animate-spin" />
                       </div>
                     </div>
@@ -332,7 +332,7 @@ export default function CaseFeedbackPage() {
                 </div>
               )}
 
-              <div className="px-5 py-3 border-t border-slate-100">
+              <div className="px-5 py-3 border-t border-slate-700">
                 <form
                   onSubmit={(e) => {
                     e.preventDefault();
@@ -344,12 +344,12 @@ export default function CaseFeedbackPage() {
                     value={followUp}
                     onChange={(e) => setFollowUp(e.target.value)}
                     placeholder="Ask about specific feedback or request more detail..."
-                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder:text-slate-400"
+                    className="flex-1 px-3.5 py-2.5 text-sm border border-slate-700 bg-slate-800 text-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent placeholder:text-slate-500"
                   />
                   <button
                     type="submit"
                     disabled={!followUp.trim() || isLoadingChat}
-                    className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="p-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <Send className="w-4 h-4" />
                   </button>
@@ -372,58 +372,53 @@ function FeedbackSection({
 }) {
   const colorMap: Record<string, { bg: string; icon: string; border: string }> =
     {
-      blue: {
-        bg: "bg-blue-50",
-        icon: "text-blue-600",
-        border: "border-blue-100",
-      },
       teal: {
-        bg: "bg-teal-50",
-        icon: "text-teal-600",
-        border: "border-teal-100",
+        bg: "bg-teal-600/10",
+        icon: "text-teal-400",
+        border: "border-teal-600/20",
       },
       emerald: {
-        bg: "bg-emerald-50",
-        icon: "text-emerald-600",
-        border: "border-emerald-100",
+        bg: "bg-emerald-500/10",
+        icon: "text-emerald-400",
+        border: "border-emerald-500/20",
       },
       amber: {
-        bg: "bg-amber-50",
-        icon: "text-amber-600",
-        border: "border-amber-100",
+        bg: "bg-amber-500/10",
+        icon: "text-amber-400",
+        border: "border-amber-500/20",
       },
       purple: {
-        bg: "bg-purple-50",
-        icon: "text-purple-600",
-        border: "border-purple-100",
+        bg: "bg-purple-500/10",
+        icon: "text-purple-400",
+        border: "border-purple-500/20",
       },
     };
 
-  const colors = colorMap[category.color] || colorMap.blue;
+  const colors = colorMap[category.color] || colorMap.teal;
   const Icon = category.icon;
 
   return (
     <div
-      className="animate-fade-in rounded-2xl border border-slate-200 bg-white overflow-hidden"
+      className="animate-fade-in rounded-xl border border-slate-700/50 bg-slate-800/50 backdrop-blur-sm overflow-hidden"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className={`flex items-center gap-3 px-5 py-4 ${colors.bg} border-b ${colors.border}`}>
-        <div className={`w-8 h-8 rounded-lg bg-white flex items-center justify-center`}>
+        <div className={`w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center`}>
           <Icon className={`w-4 h-4 ${colors.icon}`} />
         </div>
-        <h3 className="font-semibold text-slate-900 text-sm">
+        <h3 className="font-semibold text-slate-100 text-sm">
           {category.title}
         </h3>
       </div>
       <div className="p-5 space-y-3">
         {category.items.map((item, i) => (
           <div key={i} className="flex items-start gap-3">
-            <div className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-xs font-medium text-slate-500">
+            <div className="w-5 h-5 rounded-full bg-slate-700/50 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-xs font-medium text-slate-400">
                 {i + 1}
               </span>
             </div>
-            <p className="text-sm text-slate-700 leading-relaxed">{item}</p>
+            <p className="text-sm text-slate-300 leading-relaxed">{item}</p>
           </div>
         ))}
       </div>

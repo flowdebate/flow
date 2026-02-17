@@ -9,7 +9,7 @@ interface FileUploadProps {
   maxSizeMB?: number;
   label?: string;
   description?: string;
-  accentColor?: "blue" | "amber";
+  accentColor?: "blue" | "amber" | "teal";
 }
 
 export default function FileUpload({
@@ -18,7 +18,7 @@ export default function FileUpload({
   maxSizeMB = 10,
   label = "Upload a file",
   description = "PDF, Word, or text files up to 10MB",
-  accentColor = "blue",
+  accentColor = "teal",
 }: FileUploadProps) {
   const [isDragOver, setIsDragOver] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -81,38 +81,29 @@ export default function FileUpload({
     return File;
   };
 
-  const borderColor =
-    accentColor === "blue"
-      ? isDragOver
-        ? "border-blue-400 bg-blue-50"
-        : "border-slate-300"
-      : isDragOver
-        ? "border-amber-400 bg-amber-50"
-        : "border-slate-300";
-
   return (
     <div className="w-full">
       {selectedFile ? (
-        <div className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 bg-slate-50">
+        <div className="flex items-center gap-3 p-3 rounded-xl border border-slate-700 bg-slate-800">
           {(() => {
             const FileIcon = getFileIcon(selectedFile.name);
             return (
-              <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center flex-shrink-0">
-                <FileIcon className="w-5 h-5 text-slate-500" />
+              <div className="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center flex-shrink-0">
+                <FileIcon className="w-5 h-5 text-slate-400" />
               </div>
             );
           })()}
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-slate-900 truncate">
+            <p className="text-sm font-medium text-slate-100 truncate">
               {selectedFile.name}
             </p>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-400">
               {(selectedFile.size / 1024).toFixed(1)} KB
             </p>
           </div>
           <button
             onClick={clearFile}
-            className="flex-shrink-0 p-1 rounded-lg hover:bg-slate-200 text-slate-400 hover:text-slate-600"
+            className="flex-shrink-0 p-1 rounded-lg hover:bg-slate-700 text-slate-500 hover:text-red-400"
           >
             <X className="w-4 h-4" />
           </button>
@@ -123,7 +114,7 @@ export default function FileUpload({
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onClick={() => inputRef.current?.click()}
-          className={`drop-zone rounded-xl p-6 text-center cursor-pointer ${borderColor} ${isDragOver ? "active" : ""}`}
+          className={`drop-zone rounded-xl p-6 text-center cursor-pointer ${isDragOver ? "active" : ""}`}
         >
           <input
             ref={inputRef}
@@ -132,13 +123,13 @@ export default function FileUpload({
             onChange={handleInputChange}
             className="hidden"
           />
-          <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-          <p className="text-sm font-medium text-slate-700">{label}</p>
+          <Upload className="w-8 h-8 text-slate-500 mx-auto mb-2" />
+          <p className="text-sm font-medium text-slate-300">{label}</p>
           <p className="text-xs text-slate-500 mt-1">{description}</p>
         </div>
       )}
       {error && (
-        <p className="text-xs text-red-500 mt-2">{error}</p>
+        <p className="text-xs text-red-400 mt-2">{error}</p>
       )}
     </div>
   );

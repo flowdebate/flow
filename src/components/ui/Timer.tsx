@@ -80,7 +80,7 @@ export default function Timer({
             ? "text-red-500"
             : isLow
               ? "text-amber-500"
-              : "text-slate-900"
+              : "text-slate-100"
         }`}
       >
         {String(minutes).padStart(2, "0")}:{String(secs).padStart(2, "0")}
@@ -89,21 +89,21 @@ export default function Timer({
         {isRunning ? (
           <button
             onClick={pause}
-            className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600"
+            className="p-1.5 rounded-lg hover:bg-slate-700/50 text-slate-400"
           >
             <Pause className="w-4 h-4" />
           </button>
         ) : (
           <button
             onClick={start}
-            className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600"
+            className="p-1.5 rounded-lg hover:bg-slate-700/50 text-slate-400"
           >
             <Play className="w-4 h-4" />
           </button>
         )}
         <button
           onClick={reset}
-          className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400"
+          className="p-1.5 rounded-lg hover:bg-slate-700/50 text-slate-500"
         >
           <RotateCcw className="w-3.5 h-3.5" />
         </button>
